@@ -1,20 +1,19 @@
-from src.User import *
+from src.ej49.User import *
+from src.ej49.Gamin_exception import Gamin_exception
 
-user_valid = User("nicki", "nickiiinicole", "12344", "79927398713")
-user_invalid = User("dayaraaa", "nayancc", "334324", "79927398714")
-user_non_digit = User("jesuu", "star", "6565", "45A9319503436467")
-user_non_digit = User("enrique", "gamin", "909r88r", "45A9319503436467")
+def test_valid():
+    assert check_sum("4539319503436467") == True    
 
+    try:
+        check_sum("453563636346346564564645436343463") # tienne que fallar SI O si
+        # si llega hasta aca esq no funcina vbien:/
+        assert False, "TEnia que haber lanzado excepcion:/" 
+    except Gamin_exception:
+        pass 
 
-assert user_valid.check_sum() == True
-try:
-    user_invalid.check_sum() # tienne que fallar SI O si
-    # si llega hasta aca esq no funcina vbien:/
-    assert False, "TEnia que haber lanzado excepcion:/" 
-except Gamin_exception:
-    pass 
+        
+    try:
+        check_sum("8273 1232 7352 0569")
+    except Gamin_exception as e:
+        assert True
 
-try:
-    user_non_digit.check_sum()
-except Gamin_exception as e:
-    assert True
