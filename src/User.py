@@ -1,3 +1,4 @@
+import Gamin_exception 
 class User: 
     # el numero de tarjeta sigue el la formual de Luhn
     def __init__(self,name,username,password, card_number):
@@ -13,4 +14,3 @@ class User:
         if len(self.card_number)<=1 : 
             raise
         
-    
